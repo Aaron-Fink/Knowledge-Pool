@@ -1,0 +1,21 @@
+.searchBar-container {
+  position: fixed;
+  width: 100%;
+  height: 3vh;
+  text-align: center;
+  padding: 1vw;
+  background-color: #ccf2f4;
+}
+
+.searchBar-form {
+  height: 100%;
+}
+
+.searchBar-input {
+  height: 70%;
+  width: 45vw;
+}
+
+.searchBar-button {
+  height: 80%;
+}
