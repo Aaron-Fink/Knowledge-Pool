@@ -4,7 +4,8 @@
   height: 3vh;
   text-align: center;
   padding: 1vw;
-  background-color: #ccf2f4;
+  background-color: rgb(124, 156, 93);
+  box-shadow: 0 0 3px 3px rgb(65, 82, 48);
 }
 
 .searchBar-form {

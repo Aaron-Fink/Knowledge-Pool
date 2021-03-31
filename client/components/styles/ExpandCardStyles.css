@@ -1,0 +1,40 @@
+.expandCard-container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+  vertical-align: middle;
+}
+
+.expandCard-background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .3;
+  position: fixed;
+}
+
+.expandCard-modal-container {
+  width: 70%;
+  height: 70%;
+  margin: 15vh 15vw 15vh 15vw;
+  background-color: white;
+  position: relative;
+  border-radius: 20px;
+}
+
+.expanded-card-image {
+  width: 57.1vh;
+  height: 80vh;
+  border-radius: 28px;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

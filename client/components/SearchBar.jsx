@@ -4,7 +4,9 @@ import axios from 'axios';
 import './styles/SearchBarStyles.css';
 
 //  function to
-const SearchBar = ({ setCards }) => {
+const SearchBar = ({
+  setCards, setFilter, setquery, setMoreCards,
+}) => {
   //  state of the user inputed query
   const [searchTerm, setSearch] = useState('');
 
@@ -12,19 +14,21 @@ const SearchBar = ({ setCards }) => {
   //  Pass the searched term to the parent function to display the results on the QueryResultPage
   const handleSubmit = (event) => {
     event.preventDefault();
+    setquery(searchTerm);
     //  sends a get request to the server looking for all cards that match a specific term
     //  updates the list cardQuery to show the results
-    axios.get('http://localhost:3000/api/search', { params: { term: searchTerm } })
+    axios.get('/api/search', { params: { term: searchTerm } })
       .then((results) => {
-        const uniqueCards = [];
-        const seenCards = {};
-        for (let i = 0; i < results.data.length; i += 1) {
-          if (seenCards[results.data[i].name] !== true) {
-            uniqueCards.push(results.data[i]);
-            seenCards[results.data[i].name] = true;
+        if (results.data === 'Not Found') {
+          setCards([]);
+        } else {
+          if (results.data.length === 175) {
+            setMoreCards(true);
+          } else {
+            setMoreCards(false);
           }
+          setCards(results.data);
         }
-        setCards(uniqueCards);
       })
       .catch((err) => console.log(err));
   };
@@ -33,9 +37,10 @@ const SearchBar = ({ setCards }) => {
   return (
     <div className="searchBar-container">
       <form className="searchBar-form" onSubmit={handleSubmit}>
-        <input type="text" className="searchBar-input" value={searchTerm} onChange={(event) => setSearch(event.target.value)} />
+        <input type="text" className="searchBar-input" value={searchTerm} onChange={(e) => setSearch(e.target.value)} />
         <button type="submit" className="searchBar-button">Search</button>
       </form>
+      <button type="button" onClick={() => setFilter(true)}>Filter</button>
     </div>
   );
 };

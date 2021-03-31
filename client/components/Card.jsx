@@ -1,17 +1,19 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import ExpandCard from './ExpandCard';
+import React from 'react';
 import './styles/CardStyles.css';
 
-const Card = ({ card }) => {
-  const [expand, setExpand] = useState(false);
-
-  return (
-    <div className="card-container">
-      <img className="card-image" id={card.name} src={card.imageUrl ? card.imageUrl : 'https://media.magic.wizards.com/image_legacy_migration/magic/images/mtgcom/fcpics/making/mr224_back.jpg'} alt="Not Found" />
-      <div className="card-name">{card.name}</div>
-    </div>
-  );
-};
-
+const Card = ({ card, setExpand }) => (
+  <div className="card-container">
+    <img
+      className="card-image"
+      id={card.name}
+      src={card.image_uris ? card.image_uris.large : 'https://media.magic.wizards.com/image_legacy_migration/magic/images/mtgcom/fcpics/making/mr224_back.jpg'}
+      alt="Not Found"
+      onClick={() => setExpand(card)}
+    />
+    <div className="card-name">{card.name}</div>
+  </div>
+);
 export default Card;
