@@ -5,6 +5,8 @@ import DisplayCards from './DisplayCards';
 import ExpandCard from './expanded/ExpandCard';
 import FilterMenu from './expanded/FilterMenu';
 import './styles/AppStyles.css';
+import image from '../../public/franticsearch.jpg';
+import yasharn from '../../public/yasharn.jpg';
 
 const App = () => {
   //  initialize the cards parameter
@@ -16,8 +18,6 @@ const App = () => {
   const [moreCards, setMoreCards] = useState(false);
   const [triggerRequest, setTriggerRequest] = useState(true);
   const scroll = useRef(null);
-
-  // useEffect(() => scroll.current.scrollIntoView(), [filter]);
 
   return (
     <div
@@ -63,7 +63,16 @@ const App = () => {
         setFilter={setFilter}
         setquery={setquery}
         setMoreCards={setMoreCards}
+        scroll={scroll}
       />
+      {cards.length === 0 ? (
+        <div
+          className="app-image"
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        />
+      ) : null}
       <DisplayCards
         cards={cards}
         setExpand={setExpand}

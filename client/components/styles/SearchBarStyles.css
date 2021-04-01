@@ -1,22 +1,70 @@
 .searchBar-container {
   position: fixed;
   width: 100%;
-  height: 3vh;
-  text-align: center;
+  height: 5%;
   padding: 1vw;
+  display: flex;
   background-color: rgb(124, 156, 93);
   box-shadow: 0 0 3px 3px rgb(65, 82, 48);
 }
-
-.searchBar-form {
-  height: 100%;
-}
-
-.searchBar-input {
-  height: 70%;
-  width: 45vw;
-}
-
-.searchBar-button {
+.search-container {
+  position: relative;
   height: 80%;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+.text-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+}
+
+.colors-form-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 10%;
+}
+
+.type-form-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 10%;
+}
+
+.cmc-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 7%;
+}
+
+.power-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 7%;
+}
+
+.tough-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 10%;
+}
+
+.legal-form-container {
+  position: relative;
+  height: 80%;
+  margin-right: 2%;
+  width: 4%;
+}
+
+.button-container {
+  position: relative;
+  height: 100%;
+  margin-right: 2%;
+  width: 4%;
 }

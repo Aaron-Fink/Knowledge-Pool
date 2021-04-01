@@ -4,3 +4,18 @@
   background-color: #f4f9f9;
   overflow-x: hidden;
 }
+
+.app-image {
+  border-radius: 1000px;
+  width: 80vh;
+  height: 80vh;
+  background-size: cover;
+  z-index: 10;
+  margin: 15vh auto 0 auto;
+  position: relative;
+}
+
+.image-container {
+  overflow: hidden;
+  width: 100%;
+}

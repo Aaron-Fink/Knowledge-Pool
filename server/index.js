@@ -35,15 +35,19 @@ app.get('/api/scroll', (req, res) => {
 
 app.get('/api/filter', (req, res) => {
   let query = 'q=';
-  const { colors } = req.query;
-  const { legalities } = req.query;
   const { name } = req.query;
   const { text } = req.query;
-  const { rarity } = req.query;
+  const { colors } = req.query;
+  const { colorsEqual } = req.query;
   const { type } = req.query;
+  const { typeEqual } = req.query;
   const { cmc } = req.query;
+  const { typeCMC } = req.query;
   const { power } = req.query;
-  const { toughness } = req.query;
+  const { typePower } = req.query;
+  const { tough } = req.query;
+  const { typeTough } = req.query;
+  const { legal } = req.query;
   if (name.length > 0) {
     if (query.length === 2) {
       query += `${name}`;
@@ -51,97 +55,86 @@ app.get('/api/filter', (req, res) => {
       query += `+${name}`;
     }
   }
-  if (colors.length > 0) {
-    if (query.length === 2) {
-      query += `c:${colors}`;
-    } else {
-      query += `+c:${colors}`;
-    }
-  }
-  if (cmc.length > 1) {
-    if (query.length === 2) {
-      const tempCMC = cmc.trim();
-      query += `cmc:${tempCMC}`;
-    } else {
-      const tempCMC = cmc.trim();
-      query += `+cmc:${tempCMC}`;
-    }
-  }
   if (text.length > 0) {
     if (query.length === 2) {
-      query += `o:${text}`;
+      query += `o:'${text}'`;
     } else {
-      query += `+o:${text}`;
+      query += `+o:'${text}'`;
     }
   }
-  if (power.length > 1) {
-    if (query.length === 2) {
-      const tempPower = power.trim();
-      query += `pow<${tempPower}`;
-    } else {
-      const tempPower = power.trim();
-      query += `+pow<${tempPower}`;
+  if (colors) {
+    let color = '';
+    for (let i = 0; i < colors.length; i += 1) {
+      color += colors[i];
     }
-  }
-  if (toughness.length > 1) {
-    if (query.length === 2) {
-      const tempToughness = toughness.trim();
-      query += `tou:${tempToughness}`;
-    } else {
-      const tempToughness = toughness.trim();
-      query += `+tou:${tempToughness}`;
+    if (colorsEqual === 'exactly') {
+      if (query.length === 2) {
+        query += `c=${color}+-c:c`;
+      } else {
+        query += `+c=${color}+-c:c`;
+      }
+    } else if (colorsEqual === 'either') {
+      if (query.length === 2) {
+        query += `c<=${color}+-c:c`;
+      } else {
+        query += `+c<=${color}+-c:c`;
+      }
+    } else if (colorsEqual === 'neither') {
+      for (let i = 0; i < color.length; i += 1) {
+        if (query.length === 2) {
+          query += `-c:${color[i]}`;
+        } else {
+          query += `+-c:${color[i]}`;
+        }
+      }
     }
   }
   if (type) {
-    if (query.length === 2) {
+    if (typeEqual === 'exactly') {
       for (let i = 0; i < type.length; i += 1) {
-        if (i === 0) {
+        if (i === 0 && query.length === 2) {
           query += `t:${type[i]}`;
         } else {
           query += `+t:${type[i]}`;
         }
       }
-    } else {
+    } else if (typeEqual === 'neither') {
       for (let i = 0; i < type.length; i += 1) {
-        query += `+t:${type[i]}`;
-      }
-    }
-  }
-  if (legalities) {
-    if (query.length === 2) {
-      for (let i = 0; i < legalities.length; i += 1) {
-        if (i === 0) {
-          query += `f:${legalities[i]}`;
+        if (i === 0 && query.length === 2) {
+          query += `-t:${type[i]}`;
         } else {
-          query += `+or+f:${legalities[i]}`;
-        }
-      }
-    } else {
-      for (let i = 0; i < legalities.length; i += 1) {
-        if (i === 0) {
-          query += `+f:${legalities[i]}`;
-        } else {
-          query += `+or+f:${legalities[i]}`;
+          query += `+-t:${type[i]}`;
         }
       }
     }
   }
-  if (rarity) {
+  if (cmc.length > 0) {
     if (query.length === 2) {
-      for (let i = 0; i < rarity.length; i += 1) {
-        if (i === 0) {
-          query += `r:${rarity[i]}`;
-        } else {
-          query += `+or+r:${rarity[i]}`;
-        }
-      }
+      query += `cmc${typeCMC}${cmc}`;
     } else {
-      for (let i = 0; i < rarity.length; i += 1) {
-        if (i === 0) {
-          query += `+r:${rarity[i]}`;
-        } else {
-          query += `+or+r:${rarity[i]}`;
-        }
+      query += `+cmc${typeCMC}${cmc}`;
+    }
+  }
+  if (power.length > 0) {
+    if (query.length === 2) {
+      query += `pow${typePower}${power}`;
+    } else {
+      query += `+pow${typePower}${power}`;
+    }
+  }
+  if (tough.length > 0) {
+    if (query.length === 2) {
+      query += `tou${typeTough}${tough}`;
+    } else {
+      query += `+tou${typeTough}${tough}`;
+    }
+  }
+  if (legal) {
+    for (let i = 0; i < legal.length; i += 1) {
+      if (i === 0 && query.length === 2) {
+        query += `f:${legal[i]}`;
+      } else {
+        query += `+f:${legal[i]}`;
       }
     }
   }
@@ -151,7 +144,7 @@ app.get('/api/filter', (req, res) => {
       results.data.query = query.slice(2);
       res.send(results.data);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => res.send(err.response.statusText));
 });
 
 app.listen(PORT, () => {
