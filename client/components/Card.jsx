@@ -4,6 +4,8 @@
 import React from 'react';
 import './styles/CardStyles.css';
 
+//  card.card_faces.image_uris.large
+
 const Card = ({ card, setExpand }) => (
   <div className="card-container">
     <img

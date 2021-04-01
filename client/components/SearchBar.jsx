@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable prefer-const */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
@@ -121,10 +123,15 @@ const SearchBar = ({
   //  render the search bar and the search bar button to the screen
   return (
     <div className="searchBar-container">
+      <div className="title-container" onClick={() => setCards([])}>
+        <div className="title">The</div>
+        <div className="title">Knowledge</div>
+        <div className="title">Pool</div>
+      </div>
       <div className="search-container">
         <TextField
-          // inputProps={{ style: { fontSize: '.8vw' } }}
-          style={{ backgroundColor: 'white', borderRadius: '5px' }}
+          style={{ backgroundColor: 'white', borderRadius: '5px', height: '100%' }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
           placeholder="Name"
           value={name}
@@ -133,7 +140,8 @@ const SearchBar = ({
       </div>
       <div className="text-container">
         <TextField
-          style={{ backgroundColor: 'white', borderRadius: '5px' }}
+          style={{ backgroundColor: 'white', borderRadius: '5px', height: '100%' }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
           placeholder="Text"
           value={text}
@@ -149,13 +157,25 @@ const SearchBar = ({
             backgroundColor: 'white',
             borderRadius: '5px',
             marginRight: '2%',
+            height: '100%',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
         >
-          <InputLabel style={{ left: '10%', bottom: '50%', color: 'black' }} shrink={false}>Colors</InputLabel>
+          <InputLabel
+            style={{
+              left: '10%', bottom: '50%', color: 'black', fontFamily: 'monospace', height: '100%', marginTop: '-.4vh',
+            }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
+            shrink={false}
+          >
+            Colors
+          </InputLabel>
           <Select
             variant="outlined"
             value={colors}
             renderValue={() => ''}
+            style={{ height: '100%' }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
             multiple
             onChange={handleColorChange}
             MenuProps={{
@@ -171,35 +191,35 @@ const SearchBar = ({
             }}
           >
             <MenuItem value="w">
-              <Checkbox checked={colors.indexOf('w') > -1} />
+              <Checkbox checked={colors.indexOf('w') > -1} style={{ color: '#359832' }} />
               <div style={{
                 borderRadius: '25px', width: '1.5vw', height: '1.5vw', backgroundImage: `url(${plains})`, backgroundSize: 'cover',
               }}
               />
             </MenuItem>
             <MenuItem value="u">
-              <Checkbox checked={colors.indexOf('u') > -1} />
+              <Checkbox checked={colors.indexOf('u') > -1} style={{ color: '#359832' }} />
               <div style={{
                 borderRadius: '25px', width: '1.5vw', height: '1.5vw', backgroundImage: `url(${island})`, backgroundSize: 'cover',
               }}
               />
             </MenuItem>
             <MenuItem value="b">
-              <Checkbox checked={colors.indexOf('b') > -1} />
+              <Checkbox checked={colors.indexOf('b') > -1} style={{ color: '#359832' }} />
               <div style={{
                 borderRadius: '25px', width: '1.5vw', height: '1.5vw', backgroundImage: `url(${swamp})`, backgroundSize: 'cover',
               }}
               />
             </MenuItem>
             <MenuItem value="r">
-              <Checkbox checked={colors.indexOf('r') > -1} />
+              <Checkbox checked={colors.indexOf('r') > -1} style={{ color: '#359832' }} />
               <div style={{
                 borderRadius: '25px', width: '1.5vw', height: '1.5vw', backgroundImage: `url(${mountain})`, backgroundSize: 'cover',
               }}
               />
             </MenuItem>
             <MenuItem value="g">
-              <Checkbox checked={colors.indexOf('g') > -1} />
+              <Checkbox checked={colors.indexOf('g') > -1} style={{ color: '#359832' }} />
               <div style={{
                 borderRadius: '25px', width: '1.5vw', height: '1.5vw', backgroundImage: `url(${forest})`, backgroundSize: 'cover',
               }}
@@ -210,13 +230,16 @@ const SearchBar = ({
         <FormControl
           className="colors-equal-container"
           style={{
-            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '45%',
+            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '45%', height: '100%', top: '-.1vh',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
         >
           <Select
             value={colorsEqual}
             onChange={handleChange}
+            style={{ fontFamily: 'monospace', height: '100%' }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
             MenuProps={{
               anchorOrigin: {
                 vertical: 'bottom',
@@ -229,9 +252,9 @@ const SearchBar = ({
               getContentAnchorEl: null,
             }}
           >
-            <MenuItem value="exactly">Exactly</MenuItem>
-            <MenuItem value="either">Either</MenuItem>
-            <MenuItem value="neither">Neither</MenuItem>
+            <MenuItem value="exactly" style={{ fontFamily: 'monospace' }}>Exactly</MenuItem>
+            <MenuItem value="either" style={{ fontFamily: 'monospace' }}>Either</MenuItem>
+            <MenuItem value="neither" style={{ fontFamily: 'monospace' }}>Neither</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -244,10 +267,21 @@ const SearchBar = ({
             backgroundColor: 'white',
             borderRadius: '5px',
             marginRight: '2%',
+            height: '100%',
           }}
         >
-          <InputLabel style={{ left: '10%', bottom: '50%', color: 'black' }} shrink={false}>Type</InputLabel>
+          <InputLabel
+            style={{
+              left: '10%', bottom: '50%', color: 'black', fontFamily: 'monospace', height: '100%', marginTop: '-.4vh',
+            }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
+            shrink={false}
+          >
+            Type
+          </InputLabel>
           <Select
+            style={{ height: '100%' }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
             variant="outlined"
             value={type}
             renderValue={() => ''}
@@ -266,49 +300,51 @@ const SearchBar = ({
             }}
           >
             <MenuItem value="land">
-              <Checkbox checked={type.indexOf('land') > -1} />
-              <InputLabel>Land</InputLabel>
+              <Checkbox checked={type.indexOf('land') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Land</InputLabel>
             </MenuItem>
             <MenuItem value="creature">
-              <Checkbox checked={type.indexOf('creature') > -1} />
-              <InputLabel>Creature</InputLabel>
+              <Checkbox checked={type.indexOf('creature') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Creature</InputLabel>
             </MenuItem>
             <MenuItem value="planeswalker">
-              <Checkbox checked={type.indexOf('planeswalker') > -1} />
-              <InputLabel>Planeswalker</InputLabel>
+              <Checkbox checked={type.indexOf('planeswalker') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Planeswalker</InputLabel>
             </MenuItem>
             <MenuItem value="artifact">
-              <Checkbox checked={type.indexOf('artifact') > -1} />
-              <InputLabel>Artifact</InputLabel>
+              <Checkbox checked={type.indexOf('artifact') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Artifact</InputLabel>
             </MenuItem>
             <MenuItem value="enchantment">
-              <Checkbox checked={type.indexOf('enchantment') > -1} />
-              <InputLabel>Enchantment</InputLabel>
+              <Checkbox checked={type.indexOf('enchantment') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Enchantment</InputLabel>
             </MenuItem>
             <MenuItem value="sorcery">
-              <Checkbox checked={type.indexOf('sorcery') > -1} />
-              <InputLabel>Sorcery</InputLabel>
+              <Checkbox checked={type.indexOf('sorcery') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Sorcery</InputLabel>
             </MenuItem>
             <MenuItem value="instant">
-              <Checkbox checked={type.indexOf('instant') > -1} />
-              <InputLabel>Instant</InputLabel>
+              <Checkbox checked={type.indexOf('instant') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Instant</InputLabel>
             </MenuItem>
             <MenuItem value="legend">
-              <Checkbox checked={type.indexOf('legend') > -1} />
-              <InputLabel>Legendary</InputLabel>
+              <Checkbox checked={type.indexOf('legend') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Legendary</InputLabel>
             </MenuItem>
           </Select>
         </FormControl>
         <FormControl
           className="colors-equal-container"
           style={{
-            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '45%',
+            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '45%', height: '100%', top: '-.1vh',
           }}
           variant="outlined"
         >
           <Select
             value={typeEqual}
             onChange={handleTypeEqualChange}
+            style={{ fontFamily: 'monospace', height: '100%' }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
             MenuProps={{
               anchorOrigin: {
                 vertical: 'bottom',
@@ -321,16 +357,18 @@ const SearchBar = ({
               getContentAnchorEl: null,
             }}
           >
-            <MenuItem value="exactly">Exactly</MenuItem>
-            <MenuItem value="neither">Neither</MenuItem>
+            <MenuItem value="exactly" style={{ fontFamily: 'monospace' }}>Exactly</MenuItem>
+            <MenuItem value="either" style={{ fontFamily: 'monospace' }}>Either</MenuItem>
+            <MenuItem value="neither" style={{ fontFamily: 'monospace' }}>Neither</MenuItem>
           </Select>
         </FormControl>
       </div>
       <div className="cmc-container">
         <TextField
           style={{
-            backgroundColor: 'white', borderRadius: '5px', width: '50%', marginRight: '2%',
+            backgroundColor: 'white', borderRadius: '5px', width: '50%', marginRight: '2%', height: '100%',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
           placeholder="CMC"
           value={cmc}
@@ -338,12 +376,13 @@ const SearchBar = ({
         />
         <FormControl
           style={{
-            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '48%',
+            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '48%', height: '100%',
           }}
           variant="outlined"
         >
           <Select
             value={typeCMC}
+            style={{ height: '100%' }}
             onChange={handleTypeCMCChange}
             MenuProps={{
               anchorOrigin: {
@@ -368,8 +407,9 @@ const SearchBar = ({
       <div className="power-container">
         <TextField
           style={{
-            backgroundColor: 'white', borderRadius: '5px', width: '50%', marginRight: '2%',
+            backgroundColor: 'white', borderRadius: '5px', width: '50%', marginRight: '2%', height: '100%',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
           placeholder="Power"
           value={power}
@@ -377,13 +417,14 @@ const SearchBar = ({
         />
         <FormControl
           style={{
-            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '48%',
+            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '48%', height: '100%',
           }}
           variant="outlined"
         >
           <Select
             value={typePower}
             onChange={handleTypePowerChange}
+            style={{ height: '100%' }}
             MenuProps={{
               anchorOrigin: {
                 vertical: 'bottom',
@@ -407,8 +448,9 @@ const SearchBar = ({
       <div className="tough-container">
         <TextField
           style={{
-            backgroundColor: 'white', borderRadius: '5px', width: '60%', marginRight: '2%',
+            backgroundColor: 'white', borderRadius: '5px', width: '60%', marginRight: '2%', height: '100%',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           variant="outlined"
           placeholder="Toughness"
           value={tough}
@@ -416,13 +458,14 @@ const SearchBar = ({
         />
         <FormControl
           style={{
-            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '38%',
+            verticalAlign: 'unset', backgroundColor: 'white', borderRadius: '5px', width: '38%', height: '100%',
           }}
           variant="outlined"
         >
           <Select
             value={typeTough}
             onChange={handleTypeToughChange}
+            style={{ height: '100%' }}
             MenuProps={{
               anchorOrigin: {
                 vertical: 'bottom',
@@ -452,10 +495,22 @@ const SearchBar = ({
             backgroundColor: 'white',
             borderRadius: '5px',
             marginRight: '2%',
+            height: '100%',
           }}
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
         >
-          <InputLabel style={{ left: '10%', bottom: '50%', color: 'black' }} shrink={false}>Formats</InputLabel>
+          <InputLabel
+            style={{
+              left: '10%', bottom: '50%', color: 'black', fontFamily: 'monospace', marginTop: '-.4vh',
+            }}
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
+            shrink={false}
+          >
+            Formats
+          </InputLabel>
           <Select
+            InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
+            style={{ height: '100%' }}
             variant="outlined"
             value={legal}
             renderValue={() => ''}
@@ -474,24 +529,24 @@ const SearchBar = ({
             }}
           >
             <MenuItem value="standard">
-              <Checkbox checked={legal.indexOf('standard') > -1} />
-              <InputLabel>Standard</InputLabel>
+              <Checkbox checked={legal.indexOf('standard') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Standard</InputLabel>
             </MenuItem>
             <MenuItem value="modern">
-              <Checkbox checked={legal.indexOf('modern') > -1} />
-              <InputLabel>Modern</InputLabel>
+              <Checkbox checked={legal.indexOf('modern') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Modern</InputLabel>
             </MenuItem>
             <MenuItem value="legacy">
-              <Checkbox checked={legal.indexOf('legacy') > -1} />
-              <InputLabel>Legacy</InputLabel>
+              <Checkbox checked={legal.indexOf('legacy') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Legacy</InputLabel>
             </MenuItem>
             <MenuItem value="vintage">
-              <Checkbox checked={legal.indexOf('vintage') > -1} />
-              <InputLabel>Vintage</InputLabel>
+              <Checkbox checked={legal.indexOf('vintage') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Vintage</InputLabel>
             </MenuItem>
             <MenuItem value="commander">
-              <Checkbox checked={legal.indexOf('commander') > -1} />
-              <InputLabel>Commander</InputLabel>
+              <Checkbox checked={legal.indexOf('commander') > -1} style={{ color: '#359832' }} />
+              <InputLabel style={{ fontFamily: 'monospace' }}>Commander</InputLabel>
             </MenuItem>
           </Select>
         </FormControl>
@@ -500,6 +555,7 @@ const SearchBar = ({
         <Button
           onClick={Search}
           variant="contained"
+          InputProps={{ style: { fontFamily: 'monospace', height: '100%' } }}
           style={{
             height: '95%',
             verticalAlign: 'unset',
@@ -508,6 +564,7 @@ const SearchBar = ({
             backgroundColor: 'white',
             borderRadius: '5px',
             marginRight: '2%',
+            fontFamily: 'monospace',
           }}
         >
           Search

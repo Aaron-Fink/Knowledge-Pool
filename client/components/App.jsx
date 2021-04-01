@@ -6,7 +6,6 @@ import ExpandCard from './expanded/ExpandCard';
 import FilterMenu from './expanded/FilterMenu';
 import './styles/AppStyles.css';
 import image from '../../public/franticsearch.jpg';
-import yasharn from '../../public/yasharn.jpg';
 
 const App = () => {
   //  initialize the cards parameter

@@ -98,6 +98,20 @@ app.get('/api/filter', (req, res) => {
           query += `+t:${type[i]}`;
         }
       }
+    } else if (typeEqual === 'either') {
+      if (query.length === 2) {
+        query += '(';
+      } else {
+        query += '+(';
+      }
+      for (let i = 0; i < type.length; i += 1) {
+        if (i === 0) {
+          query += `t:${type[i]}`;
+        } else {
+          query += ` or t:${type[i]}`;
+        }
+      }
+      query += ')';
     } else if (typeEqual === 'neither') {
       for (let i = 0; i < type.length; i += 1) {
         if (i === 0 && query.length === 2) {
@@ -138,7 +152,6 @@ app.get('/api/filter', (req, res) => {
       }
     }
   }
-  console.log(query);
   axios.get(`https://api.scryfall.com/cards/search?${query}`)
     .then((results) => {
       results.data.query = query.slice(2);
