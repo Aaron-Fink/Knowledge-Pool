@@ -1,0 +1,16 @@
+.filter-name-input{
+  width: 10vw;
+  display: inline-block;
+}
+.filter-text-input{
+  width: 10vw;
+  display: inline-block;
+}
+
+.filter-colors-container {
+  position: relative;
+    width: 65vw;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+}

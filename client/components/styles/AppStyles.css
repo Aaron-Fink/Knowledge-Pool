@@ -1,0 +1,21 @@
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4f9f9;
+  overflow-x: hidden;
+}
+
+.app-image {
+  border-radius: 1000px;
+  width: 70vh;
+  height: 70vh;
+  background-size: cover;
+  z-index: 10;
+  margin: 18vh auto 0 auto;
+  position: relative;
+}
+
+.image-container {
+  overflow: hidden;
+  width: 100%;
+}
