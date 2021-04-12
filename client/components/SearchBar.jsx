@@ -19,7 +19,7 @@ import mountain from '../../public/mountain.png';
 import forest from '../../public/forest.png';
 //  function to
 const SearchBar = ({
-  setCards, setquery, setMoreCards, scroll,
+  setCards, setquery, setMoreCards, scroll, setPage,
 }) => {
   const [name, setName] = useState('');
   const [text, setText] = useState('');
@@ -61,6 +61,7 @@ const SearchBar = ({
       .then((results) => {
         if (results.data === 'Not Found' || results.data === 'Bad Request') {
           setCards([]);
+          setPage(2);
         } else {
           if (results.data.data.length === 175) {
             setMoreCards(true);
@@ -123,7 +124,14 @@ const SearchBar = ({
   //  render the search bar and the search bar button to the screen
   return (
     <div className="searchBar-container">
-      <div className="title-container" onClick={() => setCards([])}>
+      <div
+        className="title-container"
+        onClick={() => {
+          setPage(2);
+          setMoreCards(false);
+          setCards([]);
+        }}
+      >
         <div className="title">The</div>
         <div className="title">Knowledge</div>
         <div className="title">Pool</div>

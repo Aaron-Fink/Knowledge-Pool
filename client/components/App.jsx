@@ -22,7 +22,7 @@ const App = () => {
     <div
       className="app-container"
       onScroll={(e) => {
-        if (e.target.scrollHeight / e.target.scrollTop < 1.3 && moreCards && triggerRequest) {
+        if (e.target.scrollHeight / e.target.scrollTop < 1.5 && moreCards && triggerRequest) {
           setTriggerRequest(false);
           axios.get('/api/scroll', { params: { page, query } })
             .then((results) => {
@@ -63,6 +63,7 @@ const App = () => {
         setquery={setquery}
         setMoreCards={setMoreCards}
         scroll={scroll}
+        setPage={setPage}
       />
       {cards.length === 0 ? (
         <div
