@@ -23,6 +23,7 @@ Additionally clicking on the card will expand the card making it easier to see. 
 
 
 Below is a gif featuring the infinite scroll used. For this search it is simply showing all blue cards as the search showed above did not provided enough results.
+
 ![Infinite Scroll](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolscroll.gif)
 
 
