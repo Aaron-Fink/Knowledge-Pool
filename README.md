@@ -6,6 +6,19 @@ In order to complete work on the project I had to gather all of the information 
 
 # Table of Contents #
 
-# Technologies Used #
+# Walkthrough #
 
-Leveraged <em>ReactJS</em>
+To start off the applicaiton I wanted to ensure that the user interface was easy to use. Utilizing [Material UI](https://material-ui.com/) allowed me to leveraged pre-created components saving time in this 24 hour window. In combination with [ReactJS](https://reactjs.org/) I created this basic UI.
+
+![Main Page](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolhome.png)
+<p align="center">Card: Frantic Search | Artist: Mitchell Malloy</p>
+
+
+Clicking through the dropdowns allow a user to specify what kinds of cards a user would like to display. Then a request will be made to the Scryfall API fetching the all cards that match the users query 200 at a time.
+
+![Search Results](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolsearch.png)
+
+
+Additionally clicking on the card will expand the card making it easier to see. Should there be more than 200 cards that match the query an infinite scrolling feature allows a seamless transition to load the next batch of cards onto the page.
+
+![Expanded Card](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolexpanded.png)
