@@ -4,6 +4,8 @@ As an avid Magic the Gathering player and an aspiring Software Engineer I wanted
 
 In order to complete work on the project I had to gather all of the information about magic cards from somewhere. Initially I was using the official [Magic the Gathering API](https://docs.magicthegathering.io/) however I quickly realized that the image quality was not great when rendered. Due to this, I decided to utilize the [Scryfall API](https://scryfall.com/docs/api) instead as they have various sized images for each card.
 
+[Main Page](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolhome.png)
+
 # Table of Contents #
 
 # Technologies Used #
