@@ -12,6 +12,7 @@ To start off the applicaiton I wanted to ensure that the user interface was easy
 <h6 align="center">Card: Frantic Search | Artist: Mitchell Malloy</h6>
 
 
+
 Clicking through the dropdowns allow a user to specify what kinds of cards a user would like to display. Then a request will be made to the Scryfall API fetching the all cards that match the users query 200 at a time.
 
 ![Search Results](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolsearch.png)
