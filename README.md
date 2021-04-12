@@ -6,9 +6,11 @@ In order to complete work on the project I had to gather all of the information 
 
 # Technologies Used #
 
-ReactJS
-Material UI
-Node.js + Express
+<ul>
+  <li>ReactJS</li>
+  <li>Material UI</li>
+  <li>Node.js + Express</li>
+</ul>
 
 # Walkthrough #
 
