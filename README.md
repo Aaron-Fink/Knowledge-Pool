@@ -21,4 +21,4 @@ Clicking through the dropdowns allow a user to specify what kinds of cards a use
 
 Additionally clicking on the card will expand the card making it easier to see. Should there be more than 200 cards that match the query an infinite scrolling feature allows a seamless transition to load the next batch of cards onto the page.
 
-![Expanded Card](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolexpanded.png)
+![Expanded Card](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolexpand.png)
