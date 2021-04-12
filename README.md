@@ -12,3 +12,7 @@ To start off the applicaiton I wanted to ensure that the user interface was easy
 
 ![Main Page](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolhome.png)
 <p align="center">Card: Frantic Search | Artist: Mitchell Malloy</p>
+
+Clicking through the dropdowns allow a user to specify what kinds of cards a user would like to display.
+
+![Main Page](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolsearch.png)
