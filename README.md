@@ -4,7 +4,11 @@ As an avid Magic the Gathering player and an aspiring Software Engineer I wanted
 
 In order to complete work on the project I had to gather all of the information about magic cards from somewhere. Initially I was using the official [Magic the Gathering API](https://docs.magicthegathering.io/) however I quickly realized that the image quality was not great when rendered. Due to this, I decided to utilize the [Scryfall API](https://scryfall.com/docs/api) instead as they have various sized images for each card.
 
-# Table of Contents #
+# Technologies Used #
+
+ReactJS
+Material UI
+Node.js + Express
 
 # Walkthrough #
 
@@ -14,7 +18,7 @@ To start off the applicaiton I wanted to ensure that the user interface was easy
 <p align="center">Card: Frantic Search | Artist: Mitchell Malloy</p>
 
 
-Clicking through the dropdowns allow a user to specify what kinds of cards a user would like to display. Then a request will be made to the Node.js + Express server which will make an API request to Scryfall fetching the all cards that match the users query 200 at a time.
+Clicking through the dropdowns allow a user to specify what kinds of cards a user would like to display. Then a request will be made to the Scryfall API fetching the all cards that match the users query 200 at a time.
 
 ![Search Results](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolsearch.png)
 
