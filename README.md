@@ -11,4 +11,4 @@ In order to complete work on the project I had to gather all of the information 
 To start off the applicaiton I wanted to ensure that the user interface was easy to use. Utilizing [Material UI](https://material-ui.com/) allowed me to leveraged pre-created components saving time in this 24 hour window. In combination with [ReactJS](https://reactjs.org/) I created this basic UI.
 
 ![Main Page](https://raw.githubusercontent.com/Aaron-Fink/The-Knowldege-Pool/main/misc/theknowledgepoolhome.png)
-Card: Frantic Search | Artist: Mitchell Malloy
+<p align="center">Card: Frantic Search | Artist: Mitchell Malloy</p>
