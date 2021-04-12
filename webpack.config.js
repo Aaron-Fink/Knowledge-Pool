@@ -31,11 +31,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader',],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
-  mode: 'development',
+  mode: 'production',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
