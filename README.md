@@ -1,4 +1,4 @@
-# The Knowledge Pool #
+# The Knowledge Pool # 
 
 As an <em>avid</em> Magic the Gathering player and a Software Engineer I wanted to combine my these two parts of my life. This application is meant to make finding specific cards incredibly easy. This repository is part of my journey in the Hack Reactor bootcamp given a time period of 24 hours to complete which is an incredibly daunting task by itself. I had so much fun working on this application under the time constraint.
 
